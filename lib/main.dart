@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'animation/fade_a_widget_in_and_out.dart' as fade_animation;
+
 void main() {
   runApp(const MyApp());
 }
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const fade_animation.MyHomePage(title: 'Opacity Demo'),
     );
   }
 }
