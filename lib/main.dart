@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_epam_cookbook/codelab/cupertino_app/app.dart';
+import 'package:flutter_epam_cookbook/codelab/cupertino_app/model/app_state_model.dart';
+import 'package:provider/provider.dart';
 
 import 'animation/fade_a_widget_in_and_out.dart' as fade_animation;
-import 'codelab/first_flutter_app/first_flutter_app.dart' as first_app_codelab;
 
 void main() {
-  runApp(const first_app_codelab.MyApp());
+  runApp(ChangeNotifierProvider<AppStateModel>(
+    create: (_) => AppStateModel()..loadProducts(),
+    child: const CupertinoStoreApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
