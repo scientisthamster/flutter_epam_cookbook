@@ -59,11 +59,11 @@ class AppStateModel extends foundation.ChangeNotifier {
 
   // Returns a copy of the list of available products, filtered by category.
   List<Product> getProducts() => switch (_selectedCategory) {
-        Category.all => List.from(_availableProducts),
-        _ => _availableProducts
-            .where((product) => product.category == _selectedCategory)
-            .toList(),
-      };
+    Category.all => List.from(_availableProducts),
+    _ => _availableProducts
+        .where((product) => product.category == _selectedCategory)
+        .toList(),
+  };
 
   // Search the product catalog
   List<Product> search(String searchTerms) {
@@ -74,7 +74,7 @@ class AppStateModel extends foundation.ChangeNotifier {
 
   // Adds a product to the cart.
   void addProductToCart(int productId) {
-    if (_productsInCart.containsKey(productId)) {
+    if (!_productsInCart.containsKey(productId)) {
       _productsInCart[productId] = 1;
     } else {
       _productsInCart[productId] = _productsInCart[productId]! + 1;
@@ -113,8 +113,8 @@ class AppStateModel extends foundation.ChangeNotifier {
     notifyListeners();
   }
 
-  void setCategory(Category category) {
-    _selectedCategory = category;
+  void setCategory(Category newCategory) {
+    _selectedCategory = newCategory;
     notifyListeners();
   }
 }

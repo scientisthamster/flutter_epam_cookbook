@@ -178,7 +178,7 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
           } else if (model.productsInCart.keys.length == productIndex &&
               model.productsInCart.isNotEmpty) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
